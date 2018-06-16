@@ -1,6 +1,6 @@
 # blimps & glimpses
 
-Some very small piece of code, I guess this code isn't that useful, but hey, feel free to use it, and show me wherever it ended.
+Unrelevant, small piece of code, mainly experiments. Use it if you want, and let me know if these blimps land anywhere else.
 
 ## What's in here?
 
