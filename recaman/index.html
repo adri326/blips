@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++)
+    color += letters[Math.floor(Math.random() * 16)];
+  return color + "80";
+}
+
+window.onload = () => {
+  let values = [0];
+  let active = 0;
+  let length = 100;
+
+  for (let n = 1; n < length; n++) {
+    // Une seule ligne >.>: active = ((active - n > 0) &&!(values.include(active - n))) ? active - n : active + n;
+    if (
+        (active - n > 0)
+        && !(values.includes(active - n))
+    )
+      active -= n;
+    else
+      active += n;
+    values.push(active)
+  }
+  console.log(values);
+
+  let height = window.innerHeight;
+  let width = window.innerWidth;
+
+  const canvas = document.getElementById("canvas");
+
+  canvas.width = width;
+  canvas.height = height;
+
+  let ctx = canvas.getContext("2d");
+
+  const scale = 4; // nombre de pixels pour une unité
+
+  let colorA = [230, 100, 110];
+  let colorB = [53, 42, 64];
+
+  let old_value = values[values.length - 1];
+
+  for (let n = values.length - 2; n > 0; n--) {
+    let arc_radius = Math.abs(values[n] - old_value) / 2 * scale;
+    let arc_center = (values[n] + old_value) / 2 * scale;
+
+    //let color = getRandomColor();
+    // let color = (n % 4 < 2) == (n%2) ? colorA : colorB;
+    let ratio = n / values.length;
+    let r = Math.round(colorA[0] * (1 - ratio) + colorB[0] * ratio);
+    let g = Math.round(colorA[1] * (1 - ratio) + colorB[1] * ratio);
+    let b = Math.round(colorA[2] * (1 - ratio) + colorB[2] * ratio);
+    let color = `rgba(${r}, ${g}, ${b}, 0.8)`;
+    // ctx.fillStyle = color;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = scale;
+
+    ctx.beginPath();
+    ctx.arc(arc_center, height/2, arc_radius, 0, Math.PI, n % 2);
+
+    //ctx.fill();
+    ctx.stroke();
+    ctx.strokeStyle = "#00000080";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    old_value = values[n];
+  }
+}
+    </script>
+    <style>
+      body, canvas {
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width=512 height=512></canvas>
+  </body>
+</html>
