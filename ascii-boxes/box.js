@@ -45,7 +45,10 @@ function box(width, height, content = "", padding = 1) {
   for (let line = 0; line < Math.min(lines.length, height - top - padding - 1); line++) {
     let y = top + line;
     let x = (width - lines[line].length) / 2;
-    string = string.slice(0, y * (width + 1) + x) + lines[line] + string.slice(y * (width + 1) + x + lines[line].length);
+    string =
+      string.slice(0, y * (width + 1) + x)
+      + lines[line]
+      + string.slice(y * (width + 1) + x + lines[line].length); // OwO
   }
 
   return string;
