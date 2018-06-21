@@ -8,6 +8,7 @@
     <style>
 html {
   overflow: hidden;
+  background: black;
 }
 body {
   margin: 0;
@@ -16,6 +17,75 @@ body {
 canvas {
   width: 100vw;
   height: 100vh;
+}
+
+body > * {
+  font-family: "ATIFont", monospace;
+  font-size: 48px;
+}
+
+#input {
+  position: absolute;
+  top: 3em;
+  left: 0.5em;
+  width: 15em;
+  height: 3em;
+  color: transparent;
+  padding: 1em 0.5em;
+  text-align: center;
+  background: transparent;
+  overflow: hidden;
+  resize: none;
+  outline: none;
+  border: none;
+  z-index: 2;
+}
+
+#input::selection {
+  background: transparent;
+  color: transparent;
+}
+
+#output {
+  position: absolute;
+  top: 0;
+  left: 0.5em;
+  opacity: 0;
+  width: 9em;
+  height: 3em;
+  pointer-events: none;
+  border: none;
+}
+
+button {
+  position: absolute;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  color: transparent;
+  cursor: pointer;
+}
+
+#width-plus {
+  width: 1.5em;
+  height: 1em;
+  top: 1em;
+  left: 16em;
+}
+
+#width-minus {
+  width: 1.5em;
+  height: 1em;
+  top: 1em;
+  left: 14em;
+}
+
+#copy {
+  width: 1.5em;
+  height: 1em;
+  top: 0;
+  left: 0;
 }
 
 @font-face {
@@ -30,6 +100,10 @@ canvas {
   </head>
   <body>
     <canvas id="scene">Sorry, you'll need to have JS enabled</canvas>
-    <div style="font-family: ATIFont;">This loads the font beforehand</div>
+    <textarea id="input">Input your own text here!</textarea>
+    <button id="width-plus" onclick="box_width++;">[+]</button>
+    <button id="width-minus" onclick="box_width--;">[-]</button>
+    <textarea type="text" id="output"></textarea>
+    <button id="copy" onclick="document.getElementById('output').select(); document.execCommand('copy');">Copy!</button>
   </body>
 </html>

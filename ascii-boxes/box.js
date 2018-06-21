@@ -5,6 +5,14 @@ function box(width, height, content = "", padding = 1) {
   // r: 8; b: 16
   // nothing: 6
 
+  // text wrapping
+  let line_width = width - 2 - padding * 2;
+  let lines = soft_wrap(content, line_width);
+
+  if (height == 0) {
+    height = lines.length + padding * 2 + 2;
+  }
+
   // box outline
 
   // top row
@@ -32,16 +40,22 @@ function box(width, height, content = "", padding = 1) {
   }
   string += box_template[18];
 
-  // text
-  let line_width = width - 2 - padding * 2;
+  // text replacement
+  let top = Math.max(Math.round((height - lines.length) / 2), padding + 1);
+  for (let line = 0; line < Math.min(lines.length, height - top - padding - 1); line++) {
+    let y = top + line;
+    let x = (width - lines[line].length) / 2;
+    string = string.slice(0, y * (width + 1) + x) + lines[line] + string.slice(y * (width + 1) + x + lines[line].length);
+  }
+
+  return string;
+}
+
+function soft_wrap(content, line_width) {
+  if (line_width <= 0) throw new Error("Null line width");
   if (!/\n/m.exec(content) && content.length <= line_width) {
     // text fits in one line ^w^
-    let y = Math.round((height - 1) / 2);
-    let x = (width - content.length) / 2;
-    string =
-      string.slice(0, y * (width + 1) + x)
-      + content
-      + string.slice(y * (width + 1) + x + content.length);
+    return [content];
   }
   else {
     // text does not fit in one line D:
@@ -75,22 +89,14 @@ function box(width, height, content = "", padding = 1) {
         else { // push the built line
           lines.push(subline);
           line = line.slice(subline.length); // "eat off" the content of the new line from the current temp_line
+          words = words.slice(x);
           if (line.startsWith(" ")) line = line.slice(1); // "eat off" the remaining space
         }
       }
       lines.push(line);
     }
-
-    // text replacement
-    let top = Math.round((height - lines.length) / 2);
-    for (let line = 0; line < lines.length; line++) {
-      let y = top + line;
-      let x = (width - lines[line].length) / 2;
-      string = string.slice(0, y * (width + 1) + x) + lines[line] + string.slice(y * (width + 1) + x + lines[line].length);
-    }
+    return lines;
   }
-
-  return string;
 }
 
 function insert(child, parent = "", x = 0, y = 0) {
