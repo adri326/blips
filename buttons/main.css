@@ -1,0 +1,90 @@
+h1.title {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  text-align: center;
+  color: #91acad;
+  font-weight: 300;
+  font-size: 64px;
+  border-bottom: 1px solid #91acad;
+  border-bottom-left-radius: 16px 1px;
+  border-bottom-right-radius: 16px 1px;
+  box-shadow:
+    48px 0px 32px -24px var(--bg) inset,
+    -48px 0px 32px -24px var(--bg) inset,
+    0px -8px 12px -12px #91acad inset;
+}
+
+.button-1 {
+  color: var(--passive-color, #91acad);
+  text-decoration: none;
+  text-align: center;
+  padding: calc(6px * var(--scale)) calc(9px * var(--scale));
+  border-width: calc(1px * var(--scale));
+  border-style: solid;
+  border-color: var(--passive-color, #91acad);
+  border-radius: calc(2px * var(--scale));
+  box-shadow: 0px 0px calc(16px * var(--scale)) calc(-8px * var(--scale)) rgba(0, 0, 0, 0.2);
+  transition: border-color 0.4s ease-in-out;
+}
+
+.button-1:hover {
+  border-color: var(--active-color, #28679a);
+}
+
+.button-2 {
+  color: var(--passive-color, #111513);
+  text-decoration: none;
+  text-align: center;
+  padding: calc(6px * var(--scale)) calc(9px * var(--scale));
+  border-width: calc(1px * var(--scale));
+  border-style: solid;
+  border-color: var(--passive-color, #111513);
+  border-radius: calc(2px * var(--scale));
+  background-color: transparent;
+  transition: border-color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.button-2:hover {
+  background-color: var(--active-color, #2f88a7);
+  border-color: var(--active-color, #2f88a7);
+}
+
+.button-3 {
+  position: relative;
+  color: var(--text-color, #91acad);
+  text-decoration: none;
+  text-align: center;
+  padding: calc(6px * var(--scale)) calc(9px * var(--scale));
+  border-width: calc(1px * var(--scale));
+  border-style: solid;
+  border-color: var(--passive-color, #4d6069);
+  border-radius: calc(2px * var(--scale));
+  transition: border-color 0.4s ease-in-out;
+}
+
+.button-3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--passive-color, #4d6069);
+  width: calc(8px * var(--scale));
+  z-index: -1;
+  left: calc(16px * var(--scale));
+  transform: skewX(-30deg);
+  transition:
+    background-color 0.4s ease-in-out,
+    left 0.4s ease-in-out,
+    width 0.4s ease-in-out;
+}
+
+.button-3:hover {
+  border-color: var(--active-color, #1e5a94);
+}
+
+.button-3:hover::before {
+  background-color: var(--active-color, #1e5a94);
+  left: calc(26px * var(--scale));
+  width: calc(9px * var(--scale));
+}
