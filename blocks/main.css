@@ -1,0 +1,89 @@
+html {
+  background: #080a15;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  padding: var(--size);
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  filter: drop-shadow(
+    calc(var(--size) * .02)
+    calc(var(--size) * .02)
+    calc(var(--size) * .1)
+    rgba(0, 0, 0, 0.5)
+  );
+}
+
+.block {
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) * .25);
+  display: inline-block;
+  background: var(--color1);
+  transform: rotateX(0deg);
+  transform-origin: top;
+  transition: 0.75s;
+}
+
+.block:hover {
+  transform: rotateX(30deg);
+}
+
+.block.glow {
+  cursor: pointer;
+  box-shadow:
+    0px 0px calc(var(--size) * 1) calc(var(--size) * -.4) rgba(255, 255, 255, .5) inset,
+    0px calc(var(--size) * .2) calc(var(--size) * 2) calc(var(--size) * .1) transparent;
+}
+
+.block.glow:hover {
+  box-shadow:
+    0px 0px calc(var(--size) * 1) calc(var(--size) * -.4) transparent inset,
+    0px calc(var(--size) * .2) calc(var(--size) * 2) calc(var(--size) * .1) var(--color3);
+}
+
+.block::before {
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  background: var(--color2);
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  position: absolute;
+  top: var(--size);
+  transition: 0.75s;
+}
+
+.block:hover::before {
+  transform: rotateX(-60deg);
+}
+
+
+.red {
+  --color1: rgb(200, 32, 32);
+  --color2: rgb(150, 16, 16);
+  --color3: rgba(255, 200, 200, .3);
+}
+.purple {
+  --color1: rgb(220, 4, 150);
+  --color2: rgb(170, 16, 140);
+  --color3: rgba(255, 150, 230, .3);
+}
+.blue {
+  --color1: rgb(32, 50, 200);
+  --color2: rgb(15, 30, 140);
+  --color3: rgba(150, 200, 255, .3);
+}

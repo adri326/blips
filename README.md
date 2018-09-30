@@ -12,3 +12,4 @@ Unrelevant, small piece of code, mainly experiments. Use it if you want, and let
   * `│ ASCII boxes │`
   * `└─────────────┘`
 * [`buttons`](https://adri326.github.io/blimps/buttons/index.html): A few button designs
+* [`blocks`](https://adri326.github.io/blimps/blocks/index.html): Block elements design
