@@ -13,3 +13,4 @@ Unrelevant, small piece of code, mainly experiments. Use it if you want, and let
   * `└─────────────┘`
 * [`buttons`](https://adri326.github.io/blimps/buttons/index.html): A few button designs
 * [`blocks`](https://adri326.github.io/blimps/blocks/index.html): Block elements design
+* [`invert`](https://adri326.github.io/blimps/invert/index.html): What if the web was from bottom to top?

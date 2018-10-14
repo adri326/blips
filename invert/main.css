@@ -1,0 +1,181 @@
+:root {
+  --header-bg: rgb(114, 78, 121);
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: "Roboto";
+}
+
+#loading {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background: var(--header-bg);
+  transition: height 0.5s, opacity 0.4s 0.5s;
+  z-index: 1;
+  opacity: 1;
+}
+
+.loaded #loading {
+  height: calc(1.9 * 48px);
+  opacity: 0;
+}
+
+header {
+  height: 1.9em;
+  line-height: 1.5em;
+  box-sizing: content-box;
+  padding-top: .3em;
+  padding-bottom: .2em;
+  text-align: center;
+  color: white;
+  background: var(--header-bg);
+  margin-bottom: 0em;
+  margin-top: calc(100vh - 1.9em + 0.5em);
+  box-shadow: 0px -5px 32px -5px rgba(0, 0, 0, 0.5);
+  font-family: "Niramit";
+  font-size: 48px;
+  transition: margin 0.75s 0.5s;
+}
+
+.loaded header {
+  margin-top: 0.5em;
+}
+
+.A, .B, .C {
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
+.A {
+  background: rgb(147, 162, 168);
+  margin-bottom: 5em;
+  color: white;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  text-align: center;
+  font-size: 24px;
+}
+
+.B {
+  margin-top: 4em;
+  background: rgb(238, 238, 238);
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  text-align: justify;
+  box-shadow: 0px -8px 8px -4px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+}
+
+.C {
+  margin-bottom: calc(75vh - 8em);
+  margin-top: 4em;
+  min-height: 8em;
+  box-sizing: border-box;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: rgb(147, 162, 168);
+  box-shadow: 0px -8px 16px -8px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+}
+
+.D {
+  display: flex;
+  justify-content: center;
+  margin-top: 6em;
+  margin-bottom: 4em;
+}
+
+.arrow-holder {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+}
+
+/* https://cssicon.space/ */
+.arrow-up.icon {
+  font-size: 3px;
+  color: #000;
+  position: relative;
+  margin-left: 3em;
+  margin-top: 3em;
+  width: 1em;
+  height: 16em;
+  background-color: currentColor;
+}
+
+.arrow-up.icon:before {
+  content: '';
+  position: absolute;
+  left: -5em;
+  top: 1em;
+  width: 10em;
+  height: 10em;
+  border-top: solid 1em currentColor;
+  border-right: solid 1em currentColor;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+
+.wink.icon {
+  font-size: 3px;
+  color: #000;
+  position: relative;
+  margin-left: 2em;
+  margin-top: 2em;
+  width: 16em;
+  height: 16em;
+  border-radius: 50%;
+  border: solid 1em currentColor;
+}
+
+.wink.icon:before {
+  content: '';
+  position: absolute;
+  left: 3em;
+  top: 3em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border-top: solid 1em transparent;
+  border-right: solid 1em transparent;
+  border-bottom: solid 1em currentColor;
+  border-left: solid 1em currentColor;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.wink.icon:after {
+  content: '';
+  position: absolute;
+  right: 3em;
+  top: 3em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: solid 1em currentColor;
+}
+
+.wink.icon i {
+  position: absolute;
+  left: 3em;
+  top: 3em;
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  border-top: solid 1em transparent;
+  border-bottom: solid 1em currentColor;
+  border-left: solid 1em transparent;
+  border-right: solid 1em transparent;
+}
