@@ -1,6 +1,6 @@
-# blips & glimpses
+# blips
 
-Unrelevant, small piece of code, mainly experiments. Use it if you want, and let me know if these blips land anywhere else.
+Unrelevant, small pieces of code, mainly experiments. Use it if you want, and let me know if these blips land somewhere off this place.
 
 ## What's in here?
 
