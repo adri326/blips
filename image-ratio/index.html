@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Testing image ratio</title>
+    <style>
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  margin: none;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60vw;
+}
+
+img.min-width {
+  min-width: 500px;
+}
+
+img.max-width {
+  max-width: 700px;
+}
+
+span.credits {
+  display: block;
+  margin-top: 2em;
+  font-size: 12px;
+  text-align: center;
+}
+
+a {
+  color: rgb(48, 48, 48);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+h2 {
+  font-weight: normal;
+  margin-left: 0.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>Trying out image sizing</h1>
+    <h2>Base</h2>
+    <img src="http://etml.educanet2.ch/grp1b/sennar/website/resources/images/html-scrabble.jpg" alt="Basic image">
+    <h2>With min-width</h2>
+    <img class="min-width" src="http://etml.educanet2.ch/grp1b/sennar/website/resources/images/html-scrabble.jpg" alt="With min-width">
+    <h2>With max-width</h2>
+    <img class="max-width" src="http://etml.educanet2.ch/grp1b/sennar/website/resources/images/html-scrabble.jpg" alt="With max-width">
+    <h2>With both</h2>
+    <img class="min-width max-width" src="http://etml.educanet2.ch/grp1b/sennar/website/resources/images/html-scrabble.jpg" alt="With both">
+    <span class="credits">ⓒ <a href="http://jonathanrolande.co.uk/">Jonathan Rolande</a> on <a href="https://www.flickr.com/photos/jonathanrolande/16825139748/in/photostream/">Flickr</a>
+  </body>
+</html>
