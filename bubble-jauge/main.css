@@ -74,29 +74,29 @@ div.bubble-jauge.animate > span.bg::after {
 
 @keyframes bubble-jauge-a {
   0% {
-    transform: translateY(-4px);
+    transform: translateY(calc(var(--size, 128px) / -32));
   }
 
   50% {
-    transform: translateY(4px);
+    transform: translateY(calc(var(--size, 128px) / 32));
   }
 
   100% {
-    transform: translateY(-4px);
+    transform: translateY(calc(var(--size, 128px) / -32));
   }
 }
 
 
 @keyframes bubble-jauge-b {
   0% {
-    transform: translateY(7px);
+    transform: translateY(calc(var(--size, 128px) / 128 * 7));
   }
 
   50% {
-    transform: translateY(-7px);
+    transform: translateY(calc(var(--size, 128px) / 128 * -7));
   }
 
   100% {
-    transform: translateY(7px);
+    transform: translateY(calc(var(--size, 128px) / 128 * 7));
   }
 }
