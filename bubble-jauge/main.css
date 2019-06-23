@@ -26,7 +26,7 @@ div.bubble-jauge > span.text {
   top: calc(var(--size, 128px) / 2 - var(--size, 128px) / 128 * 12);
   height: calc(var(--size, 128px) / 128 * 24);
   line-height: calc(var(--size, 128px) / 128 * 24);
-  text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.4);
 }
 
 div.bubble-jauge > span.bg {
@@ -45,11 +45,14 @@ div.bubble-jauge > span.bg::before {
   width: calc(var(--size, 128px) / 16);
   height: calc(var(--size, 128px) / 16);
   border-radius: 50%;
-  border: calc(var(--size, 128px) / 128 * 3) solid white;
+  border: calc(var(--size, 128px) / 128 * 3) solid rgb(231, 231, 231);
   display: block;
   position: relative;
   opacity: calc(var(--value) * 0.0225 - 0.5);
   top: calc(26px + var(--value) * 0.01 * var(--size, 128px) / 128 * 16);
+}
+div.bubble-jauge.animate > span.bg::before {
+  animation: bubble-jauge-a var(--animation-speed, 3s) infinite ease-in-out;
 }
 
 div.bubble-jauge > span.bg::after {
@@ -58,9 +61,42 @@ div.bubble-jauge > span.bg::after {
   width: calc(var(--size, 128px) / 128 * 18);
   height: calc(var(--size, 128px) / 128 * 18);
   border-radius: 50%;
-  border: calc(var(--size, 128px) / 128 * 4) solid white;
+  border: calc(var(--size, 128px) / 128 * 4) solid rgb(231, 231, 231);
   display: block;
   position: relative;
   top: calc(14px + var(--value) * 0.01 * var(--size, 128px) / 128 * 40);
   opacity: calc(var(--value) * 0.02 - 0.55);
+}
+
+div.bubble-jauge.animate > span.bg::after {
+  animation: bubble-jauge-b calc(var(--animation-speed, 3s) * 1.618033) infinite ease-in-out;
+}
+
+@keyframes bubble-jauge-a {
+  0% {
+    transform: translateY(-4px);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+
+@keyframes bubble-jauge-b {
+  0% {
+    transform: translateY(7px);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+
+  100% {
+    transform: translateY(7px);
+  }
 }
