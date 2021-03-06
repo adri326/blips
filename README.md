@@ -16,3 +16,4 @@ Unrelevant, small pieces of code, mainly experiments. Use it if you want, and le
 * [`invert`](https://adri326.github.io/blips/invert/index.html): What if the web was from bottom to top?
 * [`blobs`](https://adri326.github.io/blips/blobs/index.html)
 * [`image-ratio`](https://adri326.github.io/blips/image-ratio/index.html)
+* [`quartz-test`](https://adri326.github.io/blips/quartz-test/index.html)
